@@ -6,20 +6,20 @@ import io.yawp.repository.annotations.Id;
 import io.yawp.repository.annotations.Index;
 
 @Endpoint(path = "/sample")
-public class SampleEndpoint {
+public class Sample {
 
     @Id
-    private IdRef<SampleEndpoint> id;
+    private IdRef<Sample> id;
 
     @Index
     private String desc;
     private int value;
 
-    public IdRef<SampleEndpoint> getId() {
+    public IdRef<Sample> getId() {
         return id;
     }
 
-    public void setId(IdRef<SampleEndpoint> id) {
+    public void setId(IdRef<Sample> id) {
         this.id = id;
     }
 
