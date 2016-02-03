@@ -1,4 +1,4 @@
-package br.com.dextra.utils;
+package br.com.dextra.endpoint;
 
 import io.yawp.repository.IdRef;
 import io.yawp.repository.annotations.Endpoint;
