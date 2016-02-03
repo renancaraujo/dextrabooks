@@ -1,4 +1,4 @@
-package br.com.dextra.utils;
+package br.com.dextra.endpoint;
 
 import io.yawp.repository.IdRef;
 import io.yawp.repository.annotations.Endpoint;
@@ -14,6 +14,7 @@ public class Book {
     @Index
     private String name;
     private String author;
+    private int qtd;
 
     public IdRef<Book> getId() {
         return id;
@@ -28,14 +29,22 @@ public class Book {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.qtd = qtd;
     }
     
     public String getAuthor() {
-        return name;
+        return author;
     }
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+    
+    public int getQtd() {
+        return qtd;
+    }
+
+    public void setQtd(int qtd) {
+        this.name = name;
     }
 }
