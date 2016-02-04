@@ -1,8 +1,8 @@
-package br.com.dextra.utils;
+package br.com.dextra;
 
 import io.yawp.testing.EndpointTestCaseBase;
 
-public class EndpointTestCase extends EndpointTestCaseBase {
+public class BaseTestCase extends EndpointTestCaseBase {
 
     @Override
     protected String getAppPackage() {
