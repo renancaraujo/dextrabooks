@@ -5,6 +5,7 @@ import io.yawp.repository.hooks.Hook;
 
 
 public class BookHook extends Hook<Book>{
+	
 	@Override
 	public void beforeSave(Book book){
 		List<Book> listbook = yawp(Book.class).where("name", "=", book.getName()).list();
