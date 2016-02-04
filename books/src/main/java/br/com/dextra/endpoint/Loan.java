@@ -20,6 +20,7 @@ public class Loan {
     public IdRef<Loan> getId() {
         return id;
     }
+    public Loan(){}
     
     public Loan(IdRef<Book> idLivro, IdRef<User> idUser){
     	this.idLivro = idLivro;
