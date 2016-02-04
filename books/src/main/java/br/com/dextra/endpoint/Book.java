@@ -29,7 +29,7 @@ public class Book {
     }
 
     public void setName(String name) {
-        this.qtd = qtd;
+        this.name = name;
     }
     
     public String getAuthor() {
@@ -45,6 +45,6 @@ public class Book {
     }
 
     public void setQtd(int qtd) {
-        this.name = name;
+        this.qtd = qtd;
     }
 }

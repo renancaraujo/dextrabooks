@@ -10,11 +10,13 @@ public class BookHook extends Hook<Book>{
 	@Override
 	public void beforeSave(Book book){
 		
-		List<Book> listbook=(List) yawp(Book.class).where("name", "=", book.getName()).list();
+		List<Book> listbook = yawp(Book.class).where("name", "=", book.getName()).list();
 	
 		if(!listbook.isEmpty()){
-			if (listbook.get(0).getAuthor() == book.getAuthor())
-				listbook.get(0).setQtd(listbook.get(0).getQtd()+1);
+			for (int i = 0; i < listbook.size(); i++) {
+				if (listbook.get(i).getAuthor() == book.getAuthor())
+					listbook.get(i).setQtd(listbook.get(i).getQtd()+1);
+			}
 		}
 	}
 
