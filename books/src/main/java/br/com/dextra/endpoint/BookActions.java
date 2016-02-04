@@ -18,36 +18,21 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
 public class BookActions extends Action<Book> {
 	
 	@POST("borrow")
-	public String borrow(IdRef<Book> idLivro, User user) throws Exception {
+	public void borrow(IdRef<Book> idLivro, User user) throws Exception {
 		
 		Book theBook = yawp(Book.class).fetch(idLivro);
+		User theUser = yawp(User.class).where("email", "=", user.getEmail()).only();
 		
 		if(theBook.getQtd() <= 0) throw new Exception("Livro indisponivel");
 		
 		
-		IdRef<User> idUser = user.getId();
+		IdRef<User> idUser = theUser.getId();
 		Loan myLoan = new Loan(idLivro, idUser);
 		
 		theBook.setQtd(theBook.getQtd() - 1);
 
 		
 		yawp.save(theBook);
-
-		
-		return yawp.save(myLoan).getId().toString();
+		yawp.save(myLoan);
 	}
-
-	@POST("devolve")
-	public String devolve(IdRef<Book> idLivro, Loan loan) throws Exception {
-		
-		Book theBook = yawp(Book.class).fetch(idLivro);
-
-		theBook.setQtd(theBook.getQtd() + 1);
-
-		yawp.save(theBook);
-		yawp.destroy(loan.getId());
-
-		return loan.getId().toString();
-	}
-
 }
