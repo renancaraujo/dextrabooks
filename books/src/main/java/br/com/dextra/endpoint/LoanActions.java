@@ -5,9 +5,6 @@ import io.yawp.commons.http.annotation.POST;
 import io.yawp.repository.IdRef;
 import io.yawp.repository.actions.Action;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Map;
 
 public class LoanActions extends Action<Loan> {
