@@ -5,19 +5,17 @@ import io.yawp.commons.http.annotation.POST;
 import io.yawp.repository.IdRef;
 import io.yawp.repository.actions.Action;
 
+import java.util.Map;
+
 public class LoanActions extends Action<Loan> {
+	@POST("borrow")
+	public void borrow(Map<String, String> params) {
+		
+	}
 
-    @POST
-    public Loan borrow(IdRef<Loan> idLivro, User idUser) {
-//        Loan novoEmprestimo = new Loan(idLivro, idUser);
-//        return yawp.save(novoEmprestimo);
-        return null;
-    }
-
-    @DELETE
-    public void devolve(IdRef<Loan> theLoan) {
-        yawp.destroy(theLoan);
-    }
-
+	@DELETE("devolve")
+	public void devolve(IdRef<Loan> theLoan) {
+		yawp.destroy(theLoan);
+	}
 
 }
