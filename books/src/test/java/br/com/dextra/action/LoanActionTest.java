@@ -2,7 +2,6 @@ package br.com.dextra.action;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 import org.junit.Test;
@@ -13,10 +12,10 @@ import com.google.gson.JsonObject;
 
 import br.com.dextra.BaseTestCase;
 
-public class BookActionTest extends BaseTestCase {
+public class LoanActionTest extends BaseTestCase {
 
 	@Test
-	public void testBorrow() throws Exception {
+	public void testDevolve() throws Exception {
 		JsonObject jsonUser = new JsonObject();
 		jsonUser.addProperty("email", "renan@gmail.com");
 		jsonUser.addProperty("nickname", "renan_coder");
@@ -38,9 +37,16 @@ public class BookActionTest extends BaseTestCase {
 		JsonObject jsonLoan = new JsonObject();
 		jsonLoan.addProperty("email", "renan@gmail.com");
 
-		String activeString = post(idBook + "/borrow", jsonLoan.toString());
+		Map<String, String> theLoan = new Gson().fromJson(
+				post(idBook + "/borrow", jsonLoan.toString()),
+				new TypeToken<Map<String, String>>() {
+				}.getType());
+		String theLoanId = theLoan.get("id");
 
-		assertEquals("true", activeString);
+		String result = put(theLoanId + "/devolve");
+
+		assertEquals("false", result);
 
 	}
+
 }

@@ -28,7 +28,7 @@ public class User {
         return email;
     }
 
-    public void setName(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
     

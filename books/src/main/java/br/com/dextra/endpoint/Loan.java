@@ -16,6 +16,7 @@ public class Loan {
     private IdRef<Book> idLivro;
     @Index
     private IdRef<User> idUser; 
+    private boolean active=true;
 
     public IdRef<Loan> getId() {
         return id;
@@ -46,6 +47,14 @@ public class Loan {
 	public void setIdUser(IdRef<User> idUser) {
 		this.idUser = idUser;
 	}
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	
+	
 
     
 }
