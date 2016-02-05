@@ -62,6 +62,18 @@ form .row {
           <input type="submit"/>
         </div>
       </form>
+      <form id="new-loan">
+        <h1>Novo empréstimo</h1>
+        <div class="row">
+          <input type="text" placeholder="nome do livro" id="nomeLivro"/>
+        </div>
+        <div class="row">
+          <input type="text" placeholder="email do usuário" id="emailUser"/>
+        </div>
+        <div class="row">
+          <input type="submit"/>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -128,10 +140,46 @@ form .row {
     			})
 
     		}
+    		var novoLoan = function(e) {
+    			e.preventDefault();
+    			var isto = this;
+    			var nomeLivro = $('#nomeLivro').val(),
+    				emailUser = $('#emailUser').val();
+
+    			if (nomeLivro.length < 4 || emailUser.length < 4)
+    				return alert('Preencha corretamente')
+    				
+    			//idLivro = yawp('/book').where([ 'name', '=', nomeLivro]).first( function(book) {} ).id;
+    			//idUser  = yawp('/user').where([ 'email', '=', emailUser]).first( function(user) {} ).id;
+    			
+    			idLivro = 1
+    			idUser=1
+    				
+    			$.ajax({
+    				type: "POST",
+    				url: '/api/loan',
+    				contentType: 'application/json',
+    				data: JSON.stringify({
+    					"idLivro": idLivro,
+    					"idUser": idUser
+    				}),
+    				success: function() {
+    					console.log("DEU CERTO!!!!!1!1");
+    					isto.reset()
+    				},
+    				error: function() {
+    					console.log("erro!!");
+    				},
+    				processData: false,
+    				dataType: 'json'
+    			})
+
+    		}
 
 
     		$('#new-book').on('submit', novoLivro);
     		$('#new-user').on('submit', novoUsuario);
+    		$('#new-loan').on('submit', novoLoan);
     	});
     </script>
 </body>

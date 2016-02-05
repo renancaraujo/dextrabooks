@@ -17,7 +17,7 @@ import br.com.dextra.exception.UserNotExistsException;
 public class BookAction extends Action<Book> {
 
 	@POST("borrow")
-	public Loan borrow(IdRef<Book> idLivro, User user) throws Exception {
+	public boolean borrow(IdRef<Book> idLivro, User user) throws Exception {
 
 		Book theBook = yawp(Book.class).fetch(idLivro);
 		try{
@@ -32,7 +32,7 @@ public class BookAction extends Action<Book> {
 
 			yawp.save(theBook);
 
-			return yawp.save(myLoan);
+			return yawp.save(myLoan).isActive();
 		}catch(RuntimeException e){
 			throw new UserNotExistsException("Usuario nao existe!");
 		}
