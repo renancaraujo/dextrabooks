@@ -13,11 +13,23 @@ https://cloud.google.com/appengine/docs/whatisgoogleappengine
 # Google Appengine Maven:
 https://cloud.google.com/appengine/docs/java/tools/maven
 
-# Post
-curl -H "Content-type: application/json" -X POST -d "{'desc': 'John'}" http://localhost:8080/api/sample/1/see
 
-#operacoes de livro
-##Emprestar livro
+
+# Helpers cUrl
+## Livro
+#### Criar
+curl -H "Content-type: application/json" -X POST -d "{'name': 'John', 'author': 'John', 'qtd': 4}" http://localhost:8080/api/book
+#### Remover
+curl -H "Content-type: application/json" -X DELETE http://localhost:8080/api/book/4
+
+##Usuario
+#### Criar
+curl -H "Content-type: application/json" -X POST -d "{'email': 'dasdasd@sdadsad.com', 'nickname': 'Adasdas'}" http://localhost:8080/api/user
+#### Remover
+curl -H "Content-type: application/json" -X DELETE http://localhost:8080/api/user/4
+
+##Emprestimos
+#### Emprestar livro
 curl -H "Content-type: application/json" -X POST -d "{'email': 'dsadasd@dsadas.com'}" http://localhost:8080/api/book/16/borrow
-##Devolver livro
+#### Devolver livro
 curl -H "Content-type: application/json" -X POST -d "{'id': '/loan/18'}" http://localhost:8080/api/book/16/devolve
