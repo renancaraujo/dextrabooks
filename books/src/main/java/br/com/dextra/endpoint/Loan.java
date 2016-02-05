@@ -5,6 +5,7 @@ import io.yawp.repository.IdRef;
 import io.yawp.repository.annotations.Endpoint;
 import io.yawp.repository.annotations.Id;
 import io.yawp.repository.annotations.Index;
+import io.yawp.repository.annotations.ParentId;
 
 @Endpoint(path = "/loan")
 public class Loan {
@@ -13,8 +14,8 @@ public class Loan {
     private IdRef<Loan> id;
 
     @Index
-    private IdRef<Book> idLivro;
-    @Index
+    private IdRef<Book> idBook;
+    @ParentId
     private IdRef<User> idUser; 
     private boolean active=true;
 
@@ -23,8 +24,8 @@ public class Loan {
     }
     public Loan(){}
     
-    public Loan(IdRef<Book> idLivro, IdRef<User> idUser){
-    	this.idLivro = idLivro;
+    public Loan(IdRef<Book> idBook, IdRef<User> idUser){
+    	this.idBook = idBook;
     	this.idUser = idUser;
     }
 
@@ -32,12 +33,12 @@ public class Loan {
         this.id = id;
     }
 
-	public IdRef<Book> getIdLivro() {
-		return idLivro;
+	public IdRef<Book> getIdBook() {
+		return idBook;
 	}
 
-	public void setIdLivro(IdRef<Book> idLivro) {
-		this.idLivro = idLivro;
+	public void setIdBook(IdRef<Book> idLivro) {
+		this.idBook = idLivro;
 	}
 
 	public IdRef<User> getIdUser() {

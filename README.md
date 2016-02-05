@@ -32,4 +32,4 @@ curl -H "Content-type: application/json" -X DELETE http://localhost:8080/api/use
 #### Emprestar livro
 curl -H "Content-type: application/json" -X POST -d "{'email': 'dsadasd@dsadas.com'}" http://localhost:8080/api/book/16/borrow
 #### Devolver livro
-curl -H "Content-type: application/json" -X POST -d "{'id': '/loan/18'}" http://localhost:8080/api/book/16/devolve
+curl -H "Content-type: application/json" -X PUT http://localhost:8080/api/loan/16/devolve

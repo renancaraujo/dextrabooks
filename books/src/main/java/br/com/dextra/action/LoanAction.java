@@ -2,8 +2,7 @@ package br.com.dextra.action;
 
 import br.com.dextra.endpoint.Book;
 import br.com.dextra.endpoint.Loan;
-import io.yawp.commons.http.annotation.DELETE;
-import io.yawp.commons.http.annotation.POST;
+
 import io.yawp.commons.http.annotation.PUT;
 import io.yawp.repository.IdRef;
 import io.yawp.repository.actions.Action;
@@ -17,8 +16,8 @@ public class LoanAction extends Action<Loan> {
 
 		theLoan.setActive(false);
 
-		IdRef<Book> idLivro = theLoan.getIdLivro();
-		Book theBook = yawp(Book.class).fetch(idLivro);
+		IdRef<Book> idBook = theLoan.getIdBook();
+		Book theBook = yawp(Book.class).fetch(idBook);
 
 		theBook.setQtd(theBook.getQtd() + 1);
 
@@ -27,4 +26,5 @@ public class LoanAction extends Action<Loan> {
 
 		return theLoan.isActive();
 	}
+
 }
