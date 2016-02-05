@@ -2,7 +2,6 @@ package br.com.dextra.action;
 
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 
 import org.junit.Test;
@@ -38,9 +37,15 @@ public class BookActionTest extends BaseTestCase {
 		JsonObject jsonLoan = new JsonObject();
 		jsonLoan.addProperty("email", "renan@gmail.com");
 
-		String activeString = post(idBook + "/borrow", jsonLoan.toString());
+		//String activeString = post(idBook + "/borrow", jsonLoan.toString());
+		Map<String, String> activeString = new Gson().fromJson(
+				post(idBook+"/borrow", jsonLoan.toString()),
+				new TypeToken<Map<String, String>>() {
+				}.getType());
+		String active = activeString.get("active");
 
-		assertEquals("true", activeString);
+
+		assertEquals("true", active);
 
 	}
 }
