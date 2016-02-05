@@ -3,24 +3,19 @@ package br.com.dextra.hook;
 import java.util.List;
 
 import br.com.dextra.endpoint.Book;
+import br.com.dextra.exception.BookHookException;
+import io.yawp.commons.http.HttpException;
 import io.yawp.repository.hooks.Hook;
 
 
 public class BookHook extends Hook<Book>{
 	
 	@Override
-	public void beforeSave(Book book){
-		List<Book> listbook = yawp(Book.class).where("name", "=", book.getName()).list();
+	public void beforeSave(Book newbook) {
+		Book oldbook = yawp(Book.class).where("name", "=", newbook.getName()).where("author", "=", newbook.getAuthor()).first();
 		
-		if(!listbook.isEmpty()){
-			for (int i = 0; i < listbook.size(); i++) {
-				if (listbook.get(i).getAuthor().equals(book.getAuthor())) {
-					yawp.destroy(yawp(Book.class).fetch(listbook.get(i).getId()).getId());
-					int newQtd = listbook.get(i).getQtd()+book.getQtd();
-					book.setQtd(newQtd);
-				}
-
-			}
+		if (oldbook != null) {
+			throw new BookHookException("Livro já existente. (ID: " + oldbook.getId() + ").");
 		}
 	}
 

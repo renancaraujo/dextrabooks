@@ -3,11 +3,11 @@ package br.com.dextra.endpoint;
 import org.junit.Test;
 
 import com.google.gson.JsonObject;
-import br.com.dextra.exception.MyMessageException;
+import br.com.dextra.exception.DoubleUserException;
 import br.com.dextra.BaseTestCase;
 
 public class userTest extends BaseTestCase {
-	@Test(expected = MyMessageException.class)
+	@Test(expected = DoubleUserException.class)
 	public void testUserBeforeSave() throws Exception {
 		JsonObject jsonUser = new JsonObject();
 		jsonUser.addProperty("email", "renan@gmail.com");
