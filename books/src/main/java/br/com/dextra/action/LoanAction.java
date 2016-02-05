@@ -1,11 +1,13 @@
-package br.com.dextra.endpoint;
+package br.com.dextra.action;
 
+import br.com.dextra.endpoint.Book;
+import br.com.dextra.endpoint.Loan;
 import io.yawp.commons.http.annotation.DELETE;
 import io.yawp.commons.http.annotation.POST;
 import io.yawp.repository.IdRef;
 import io.yawp.repository.actions.Action;
 
-public class LoanActions extends Action<Loan> {
+public class LoanAction extends Action<Loan> {
 	
 	@DELETE("devolve")
 	public String devolve(IdRef<Loan> idLoan) throws Exception {

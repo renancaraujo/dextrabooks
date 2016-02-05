@@ -1,7 +1,8 @@
-package br.com.dextra.endpoint;
+package br.com.dextra.action;
 
 import java.util.List;
 
+import br.com.dextra.endpoint.Book;
 import io.yawp.commons.http.annotation.GET;
 import io.yawp.repository.actions.Action;
 

@@ -1,4 +1,4 @@
-package br.com.dextra.endpoint;
+package br.com.dextra.action;
 
 import io.yawp.commons.http.annotation.DELETE;
 import io.yawp.commons.http.annotation.POST;
@@ -12,10 +12,14 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Map;
 
+import br.com.dextra.endpoint.Book;
+import br.com.dextra.endpoint.Loan;
+import br.com.dextra.endpoint.User;
+
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 
-public class BookActions extends Action<Book> {
+public class BookAction extends Action<Book> {
 	
 	@POST("borrow")
 	public void borrow(IdRef<Book> idLivro, User user) throws Exception {

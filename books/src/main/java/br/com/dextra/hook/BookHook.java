@@ -1,6 +1,8 @@
-package br.com.dextra.endpoint;
+package br.com.dextra.hook;
 
 import java.util.List;
+
+import br.com.dextra.endpoint.Book;
 import io.yawp.repository.hooks.Hook;
 
 
