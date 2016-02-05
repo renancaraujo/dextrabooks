@@ -6,6 +6,9 @@ import io.yawp.repository.actions.Action;
 import br.com.dextra.endpoint.Book;
 import br.com.dextra.endpoint.Loan;
 import br.com.dextra.endpoint.User;
+import br.com.dextra.exception.MyMessageException;
+import br.com.dextra.exception.NoBookAvaliableException;
+import br.com.dextra.exception.UserNotExistsException;
 
 public class BookAction extends Action<Book> {
 
@@ -13,19 +16,24 @@ public class BookAction extends Action<Book> {
 	public Loan borrow(IdRef<Book> idLivro, User user) throws Exception {
 
 		Book theBook = yawp(Book.class).fetch(idLivro);
+		try{
+			User theUser = yawp(User.class).where("email", "=", user.getEmail())
+					.only();
+			if (theBook.getQtd() <= 0)
+				throw new NoBookAvaliableException("Livro indisponivel");
 
-		User theUser = yawp(User.class).where("email", "=", user.getEmail())
-				.only();
+			IdRef<User> idUser = theUser.getId();
+			Loan myLoan = new Loan(idLivro, idUser);
+			theBook.setQtd(theBook.getQtd() - 1);
 
-		if (theBook.getQtd() <= 0)
-			throw new Exception("Livro indisponivel");
+			yawp.save(theBook);
 
-		IdRef<User> idUser = theUser.getId();
-		Loan myLoan = new Loan(idLivro, idUser);
-		theBook.setQtd(theBook.getQtd() - 1);
+			return yawp.save(myLoan);
+		}catch(RuntimeException e){
+			throw new UserNotExistsException("Usuario nao existe!");
+		}
+		
 
-		yawp.save(theBook);
-
-		return yawp.save(myLoan);
+		
 	}
 }

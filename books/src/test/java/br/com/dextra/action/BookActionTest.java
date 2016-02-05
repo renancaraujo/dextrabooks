@@ -21,7 +21,7 @@ public class BookActionTest extends BaseTestCase {
 		jsonUser.addProperty("email", "renan@gmail.com");
 		jsonUser.addProperty("nickname", "renan_coder");
 
-		String res = post("/user", jsonUser.toString());
+		post("/user", jsonUser.toString());
 
 		JsonObject jsonBook = new JsonObject();
 
