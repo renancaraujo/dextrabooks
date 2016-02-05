@@ -143,26 +143,22 @@ form .row {
     		var novoLoan = function(e) {
     			e.preventDefault();
     			var isto = this;
-    			var nomeLivro = $('#nomeLivro').val(),
-    				emailUser = $('#emailUser').val();
-
-    			if (nomeLivro.length < 4 || emailUser.length < 4)
+    			var idLivro = $('#nomeLivro').val(),
+    				idUser = $('#emailUser').val();
+    			if (idLivro.length < 4 || idUser.length < 4)
     				return alert('Preencha corretamente')
     				
     			//idLivro = yawp('/book').where([ 'name', '=', nomeLivro]).first( function(book) {} ).id;
     			//idUser  = yawp('/user').where([ 'email', '=', emailUser]).first( function(user) {} ).id;
-    			
-    			idLivro = 1
-    			idUser=1
     				
     			$.ajax({
     				type: "POST",
     				url: '/api/loan',
     				contentType: 'application/json',
     				data: JSON.stringify({
-    					"idLivro": idLivro,
-    					"idUser": idUser
-    				}),
+    					"idBook": idLivro,
+    					"idUser": idUser,
+    				}), 	
     				success: function() {
     					console.log("DEU CERTO!!!!!1!1");
     					isto.reset()
@@ -173,7 +169,6 @@ form .row {
     				processData: false,
     				dataType: 'json'
     			})
-
     		}
 
 
