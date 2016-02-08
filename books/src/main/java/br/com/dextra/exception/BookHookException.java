@@ -1,21 +1,11 @@
 package br.com.dextra.exception;
 
+import io.yawp.commons.http.HttpException;
+
 public class BookHookException extends MyMessageException {
-	BookHookException() {
-		super();
-	}
 
 	public BookHookException(String message) {
 		super(message);
-
-	}
-
-	public BookHookException(String message, Throwable cause) {
-		super(message, cause);
-	}
-
-	public BookHookException(Throwable cause) {
-		super(cause);
 	}
 
 }
