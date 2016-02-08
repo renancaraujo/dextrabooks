@@ -24,7 +24,7 @@ curl -H "Content-type: application/json" -X DELETE http://localhost:8080/api/boo
 
 ##Usuario
 #### Criar
-curl -H "Content-type: application/json" -X POST -d "{'email': 'dasdasd@sdadsad.com', 'nickname': 'Adasdas'}" http://localhost:8080/api/user
+curl -H "Content-type: application/json" -X POST -d "{'email': 'dasdasd@sdadsad.com', 'nickname': 'Adasdas','isAdmin':false}" http://localhost:8080/api/user
 #### Remover
 curl -H "Content-type: application/json" -X DELETE http://localhost:8080/api/user/4
 

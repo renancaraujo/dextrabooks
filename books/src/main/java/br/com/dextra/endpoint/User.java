@@ -15,6 +15,8 @@ public class User {
     private String email;
     @Index
     private String nickname;
+    
+    private boolean isAdmin;
 
     public IdRef<User> getId() {
         return id;
@@ -38,5 +40,13 @@ public class User {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+    
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

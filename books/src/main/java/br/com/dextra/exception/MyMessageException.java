@@ -1,28 +1,16 @@
 package br.com.dextra.exception;
 
-public class MyMessageException extends RuntimeException{
+import io.yawp.commons.http.HttpException;
+
+public class MyMessageException extends HttpException{
 	private String message = null;
-	MyMessageException(){
-		super();
-	}
 
     public MyMessageException(String message) {
-        super(message);
+        super(500,message);
         this.message = message;
         
     }
 
-
-    public MyMessageException(String message, Throwable cause) {
-        super(message, cause);
-        this.message = message;
-    }
-
-
-    public MyMessageException(Throwable cause) {
-        super(cause);
-    }
-    
     @Override
     public String toString(){
     	return message;
