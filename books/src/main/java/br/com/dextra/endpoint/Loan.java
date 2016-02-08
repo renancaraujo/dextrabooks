@@ -15,7 +15,6 @@ public class Loan {
 
     @Index
     private IdRef<Book> idBook;
-    @ParentId
     private IdRef<User> idUser; 
     private boolean active=true;
 

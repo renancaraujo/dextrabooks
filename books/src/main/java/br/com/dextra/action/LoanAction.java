@@ -1,8 +1,10 @@
 package br.com.dextra.action;
 
+import java.util.List;
+
 import br.com.dextra.endpoint.Book;
 import br.com.dextra.endpoint.Loan;
-
+import io.yawp.commons.http.annotation.GET;
 import io.yawp.commons.http.annotation.PUT;
 import io.yawp.repository.IdRef;
 import io.yawp.repository.actions.Action;
@@ -26,5 +28,9 @@ public class LoanAction extends Action<Loan> {
 
 		return theLoan.isActive();
 	}
-
+	
+	@GET("all")
+	public List<Loan> listAll() {
+		return yawp(Loan.class).list();
+	}
 }

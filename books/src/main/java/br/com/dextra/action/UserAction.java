@@ -12,6 +12,6 @@ import br.com.dextra.endpoint.User;
 public class UserAction extends Action<User> {
 	@GET("loans")
 	public List<Loan> LoanListUser(IdRef<User>  user){
-		return yawp(Loan.class).from(user).list();
+		return yawp(Loan.class).where("idUser", "=", user).list();
 	}
 }
