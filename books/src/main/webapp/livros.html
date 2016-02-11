@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
   <title>Dextra books</title>
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Roboto:400,500,700,900,300,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link rel="stylesheet" href="style.css" />
   <meta name="theme-color" content="#000">
 
@@ -35,18 +35,7 @@
         <a class="btn-floating btn-large waves-effect waves-light red cantinho modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
         <div class="list">
           <ul class="collection" id="booklist">
-            <li class="collection-item" id="booklist-item">
 
-              <span class="name">As cronicas de narnia</span>
-              <span class="author">CS Lewis</span>
-              <span class="qtd">3 unidades</span>
-
-              <div class="deleteicon">
-                <a href="">
-                  <i class="material-icons tiny text-red text-darken-3">delete</i>
-                </a>
-              </div>
-            </li>
 
           </ul>
         </div>
@@ -57,32 +46,60 @@
 
     <div class="components">
       <div id="modal1" class="modal">
+          <form id="new-book">
         <div class="modal-content">
           <h4>Novo livro</h4>
           <p>
-            <form id="new-book">
-       <div class="row">
-         <input type="text" placeholder="nome" id="nome"/>
-       </div>
-       <div class="row">
-         <input type="text" placeholder="Autor" id="autor"/>
-       </div>
-       <div class="row">
-         <input type="number" placeholder="Quantidade" id="quantidade"/>
-       </div>
 
-     </form>
+             <div class="row">
+               <input type="text" placeholder="nome" id="nome"/>
+             </div>
+             <div class="row">
+               <input type="text" placeholder="Autor" id="autor"/>
+             </div>
+             <div class="row">
+               <input type="number" min="0" placeholder="Quantidade" id="quantidade"/>
+             </div>
+
+
           </p>
         </div>
         <div class="modal-footer">
-          <a href="#!" id="mandar-livro" class="waves-effect waves-green btn-flat">Agree</a>
+          <button href="#!" id="mandar-livro" type="submit" class="waves-effect waves-green btn-flat">Adicionar</button>
         </div>
+        </form>
       </div>
+      <div id="modal2" class="modal">
+          <form id="update-book">
+        <div class="modal-content">
+          <h4>Atualizar livro</h4>
+          <p>
+            <input type="hidden" id="livroemedicao"/>
+             <div class="row">
+               <input type="text" placeholder="nome" id="nome2"/>
+             </div>
+             <div class="row">
+               <input type="text" placeholder="Autor" id="autor2"/>
+             </div>
+             <div class="row">
+               <input type="number" min="0" placeholder="Quantidade" id="quantidade2"/>
+             </div>
+
+
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button href="#!" id="salvar-livro" type="submit" class="waves-effect waves-green btn-flat">Salvar</button>
+        </div>
+        </form>
+      </div>
+
     </div>
 
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script src="books.js"></script>
     <script src="app.js"></script>
 
 </body>

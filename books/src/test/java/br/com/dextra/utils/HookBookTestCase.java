@@ -22,14 +22,14 @@ public class HookBookTestCase extends BaseTestCase {
         json.addProperty("author", "Stephen King");
         json.addProperty("qtd", 5);
 
-        post("/book/addBook", json.toString());
+        post("/book/addbook", json.toString());
         
         JsonObject json2 = new JsonObject();
         json2.addProperty("name", "50 tons de cinza");
         json2.addProperty("author", "Stephen King");
         json2.addProperty("qtd", 2);
 
-        post("/book/addBook", json2.toString());
+        post("/book/addbook", json2.toString());
         
         Book book = yawp(Book.class).where("name", "=", "50 tons de cinza").where("author", "=", "Stephen King").first();
 	}
@@ -42,14 +42,14 @@ public class HookBookTestCase extends BaseTestCase {
         json.addProperty("author", "Stephen King");
         json.addProperty("qtd", 5);
 
-        post("/book/addBook", json.toString());
+        post("/book/addbook", json.toString());
         
         JsonObject json2 = new JsonObject();
         json2.addProperty("name", "51 tons de cinza");
         json2.addProperty("author", "Stephen King");
         json2.addProperty("qtd", 2);
 
-        post("/book/addBook", json2.toString());
+        post("/book/addbook", json2.toString());
         
         Book book = yawp(Book.class).where("name", "=", "50 tons de cinza").where("author", "=", "Stephen King").first();
         

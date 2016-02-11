@@ -30,7 +30,7 @@ public class LoanActionTest extends BaseTestCase {
 		jsonBook.addProperty("qtd", 1);
 
 		Map<String, String> post = new Gson().fromJson(
-				post("/book", jsonBook.toString()),
+				post("/book/addbook", jsonBook.toString()),
 				new TypeToken<Map<String, String>>() {
 				}.getType());
 		String idBook = post.get("id");
@@ -69,7 +69,7 @@ public class LoanActionTest extends BaseTestCase {
 		jsonBook.addProperty("qtd", 1);
 
 		Map<String, String> post = new Gson().fromJson(
-				post("/book", jsonBook.toString()),
+				post("/book/addbook", jsonBook.toString()),
 				new TypeToken<Map<String, String>>() {
 				}.getType());
 
@@ -104,7 +104,7 @@ public class LoanActionTest extends BaseTestCase {
 		jsonBook.addProperty("qtd", 1);
 
 		Map<String, String> post = new Gson().fromJson(
-				post("/book", jsonBook.toString()),
+				post("/book/addbook", jsonBook.toString()),
 				new TypeToken<Map<String, String>>() {
 				}.getType());
 

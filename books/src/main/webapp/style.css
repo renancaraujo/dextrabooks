@@ -2,7 +2,8 @@
   background-image: url('fundo.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-
+  min-height: 100vh;
+  background-position: center center;
 }
 #start .main{
   position: absolute;
@@ -36,9 +37,7 @@ nav .brand-logo {
   right: 30px;
 }
 
-#booklist{
 
-}
 #booklist-item span:not(.name){
   margin-left: 10px;
   font-size: 0.9em;
