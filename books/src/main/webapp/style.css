@@ -56,3 +56,8 @@ header, main, footer {
     padding-left: 0;
   }
 }
+.placeholderlist{
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
